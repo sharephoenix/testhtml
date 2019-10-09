@@ -12,6 +12,7 @@
   <input type="button" value="显示分享" onclick="showShare()" />
   <input type="button" value="显示复制链接" onclick="showCopy()" />
   <input type="button" value="还原" onclick="resetConfig()" />
+  <input type="button" value="注入分享班级数据" onclick="shareClass()" />
 
   <script>
     function getPlatform() {
@@ -65,6 +66,14 @@
       });
     }
 
+    function handleJSBridgeClass(options) {
+      initJSBridge(function(bridge) {
+        bridge.callHandler('shareClassroom', options, function(res) {
+          alert(res)
+        });
+      });
+    }
+
     function showShare() {
       handleJSBridge({
         title: '显示分享',
@@ -83,6 +92,14 @@
       handleJSBridge({
         title: '显示全部',
         actionList: ['share', 'shareClass', 'copy']
+      })
+    }
+
+    function shareClass() {
+      handleJSBridgeClass({
+        title: 'titlea',
+        imageUrl: 'null',
+        content: 'this is content'
       })
     }
   </script>
