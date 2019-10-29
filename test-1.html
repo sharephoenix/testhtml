@@ -14,6 +14,11 @@
   <input type="button" value="还原" onclick="resetConfig()" />
   <input type="button" value="注入分享班级数据" onclick="shareClass()" />
 
+  <input type="button" value="显示分享B" onclick="showShareB()" />
+  <input type="button" value="显示复制链接B" onclick="showCopyB()" />
+  <input type="button" value="还原B" onclick="resetConfigB()" />
+  <input type="button" value="注入分享班级数据B" onclick="shareClassB()" />
+
   <script>
     function getPlatform() {
       var userAgent = navigator.userAgent;
@@ -98,6 +103,31 @@
     function shareClass() {
       handleJSBridgeClass({
         title: 'titlea',
+        imageUrl: 'null',
+        content: 'this is content'
+      })
+    }
+    // AAAAAAAA
+    function showShareB() {
+      handleJSBridge({
+        actionList: ['share']
+      })
+    }
+
+    function showCopyB() {
+      handleJSBridge({
+        actionList: ['copy']
+      })
+    }
+
+    function resetConfigB() {
+      handleJSBridge({
+        actionList: ['share', 'shareClass', 'copy']
+      })
+    }
+
+    function shareClassB() {
+      handleJSBridgeClass({
         imageUrl: 'null',
         content: 'this is content'
       })
